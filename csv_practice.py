@@ -63,5 +63,40 @@ with open(CLEANED_FILE, "w", newline="") as f:
 
 print(f"Wrote {len(high_value)} of {rows_read} rows to {CLEANED_FILE}.")
 
+# Exercise 6 - Read with csv.DictReader
+# csv.reader is useful when the column order is known and won't change.
+# DictReader is better when I want to access columns by name, even if their order changes.
+
+dict_total = 0
+
+with open(SALES_FILE, "r") as f:
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        product = row["product"]
+        price = float(row["price"])
+        quantity = int(row["quantity"])
+        total = price * quantity
+        dict_total += total
+
+        print(f"{product}: {quantity} units × ${price:.2f} = ${total:.2f}")
+
+print(f"DictReader total revenue: ${dict_total:.2f}")
+
+# Exercise 7 - Sales summary by product
+summary = {}
+
+with open(SALES_FILE, "r") as f:
+    reader = csv.DictReader(f)
+
+    for row in reader:
+        product = row["product"]
+        total = float(row["price"]) * int(row["quantity"])
+        summary[product] = summary.get(product, 0) + total
+
+for product in sorted(summary):
+    print(f"{product}: ${summary[product]:.2f}")
+
+
 
 
