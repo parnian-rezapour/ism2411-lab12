@@ -1,3 +1,14 @@
+# Reflection 1 - Python vs. Excel
+# Python makes it easier to repeat the same cleaning and reporting steps
+# automatically instead of doing them manually each time in Excel.
+# Excel is still easier when I want to quickly view, edit, or explore data.
+
+# Reflection 2 - Append-mode log
+# A real estate company could use a log to track daily rent collections
+# with the date and total amount received.
+# Append mode keeps each new entry without deleting previous records,
+# making it easier to review the history.
+ 
 import csv
 
 # Exercise 1 - Set up the sales CSV file
