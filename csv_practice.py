@@ -97,6 +97,18 @@ with open(SALES_FILE, "r") as f:
 for product in sorted(summary):
     print(f"{product}: ${summary[product]:.2f}")
 
+# Exercise 8 - Append-mode log
+from datetime import datetime
+
+LOG_FILE = "data/run_log.txt"
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+with open(LOG_FILE, "a") as f:
+    f.write(f"{timestamp} | Total revenue: ${total_revenue:.2f}\n")
+
+print(f"Added a log entry to {LOG_FILE}.")
+
+
 
 
 
